@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Unit Name</label>
+        <input type="text" class="form-control" name="unit_name" formControlName="video_name" #video_name [(ngModel)] = "adunit.video_name"/>
+      </div>
+      <div *ngIf="angForm.controls['video_name'].invalid && (angForm.controls['video_name'].dirty || angForm.controls['video_name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['video_name'].errors.required">
+          Video Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Unit Price</label>
+        <input type="text" class="form-control" name="video_link" formControlName="video_link" #video_link [(ngModel)] = "adunit.video_link"/>
+      </div>
+      <div *ngIf="angForm.controls['video_link'].invalid && (angForm.controls['video_link'].dirty || angForm.controls['video_link'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['video_link'].errors.required">
+          Video Link is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Unit Price</label>
+        <input type="text" class="form-control" name="song_type" formControlName="song_type" #song_type [(ngModel)] = "adunit.song_type"/>
+      </div>
+      <div *ngIf="angForm.controls['song_type'].invalid && (angForm.controls['song_type'].dirty || angForm.controls['song_type'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['song_type'].errors.required">
+          Song Type is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Unit Price</label>
+        <input type="text" class="form-control" name="song_name" formControlName="song_name" #song_name [(ngModel)] = "adunit.song_name"/>
+      </div>
+      <div *ngIf="angForm.controls['song_name'].invalid && (angForm.controls['song_name'].dirty || angForm.controls['song_name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['song_name'].errors.required">
+          Song Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click)="updateAdUnit(video_name.value, video_link.value, song_type.value, song_name.value)" [disabled]="angForm.invalid" class="btn btn-primary">Update Unit</button>
+      </div>
+    </form>
+  </div>
+</div>
